@@ -5513,6 +5513,7 @@ void *newMotrStore(CephContext *cct)
     store->conf.mc_idx_service_id  = M0_IDX_DIX;
     store->dix_conf.kc_create_meta = false;
     store->conf.mc_idx_service_conf = &store->dix_conf;
+    store->conf.mc_addb_stob_location = getenv("M0_CLIENT_ADDB_DIR");
 
     if (!g_conf().get_val<bool>("motr_tracing_enabled")) {
       m0_trace_level_allow(M0_WARN); // allow errors and warnings in syslog anyway
